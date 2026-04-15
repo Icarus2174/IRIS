@@ -1,0 +1,35 @@
+{
+  "case_name": "case_inference_earth",
+  "communication_intensity": "low",
+  "delay_tolerant": false,
+  "explanation": {
+    "fallback": "strict latency and/or high reliability increases fallback sensitivity",
+    "runtime_policy.allow_hybrid": "disabled hybrid; removed 'hybrid' from placement candidates",
+    "workload": "inference modeled as latency-sensitive and low communication intensity"
+  },
+  "fallback_sensitivity": "high",
+  "hardware_requirement": {
+    "accelerators": {
+      "count": 8,
+      "type": "gpu"
+    },
+    "min_memory_gb": 24
+  },
+  "latency_class": "strict",
+  "placement_candidates": [
+    "earth"
+  ],
+  "scheduling_urgency": "immediate",
+  "space_constraints": {
+    "min_link_confidence_for_orbit": 0.6,
+    "orbit_candidate": false,
+    "prefer_orbit_for_energy": false
+  },
+  "topology_requirement": {
+    "need_dense_interconnect": false,
+    "preferred_link_mode": "packet",
+    "stability_requirement": "high",
+    "style": "local_simple"
+  },
+  "workload_class": "inference"
+}

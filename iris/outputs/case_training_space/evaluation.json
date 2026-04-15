@@ -1,0 +1,87 @@
+{
+  "baseline_comparison": {
+    "baseline": "earth_only_packet_only_no_feedback",
+    "diff_hints": {
+      "placement": {
+        "baseline": "earth",
+        "chosen": "orbit"
+      },
+      "preferred_link_mode": {
+        "baseline": "packet",
+        "chosen": "optical"
+      },
+      "runtime_feedback": {
+        "baseline": "disabled",
+        "chosen": "enabled"
+      }
+    },
+    "notes": "naive baseline for evaluation narrative"
+  },
+  "case_name": "case_training_space",
+  "checks": [
+    {
+      "details": {
+        "allocated": 100,
+        "reason": "never allocate more than requested",
+        "requested": 100
+      },
+      "name": "resource_over_allocation",
+      "passed": true
+    },
+    {
+      "details": {
+        "allocated": 100,
+        "reason": "prototype expects full allocation when possible",
+        "requested": 100
+      },
+      "name": "resource_under_allocation",
+      "passed": true
+    },
+    {
+      "details": {
+        "latency_class": "normal",
+        "placement": "orbit",
+        "reason": "strict inference should be earth-local in this prototype"
+      },
+      "name": "strict_inference_not_in_orbit",
+      "passed": true
+    },
+    {
+      "details": {
+        "communication_intensity": "high",
+        "dense_expected": true,
+        "dense_present": true,
+        "reason": "training/high-comm should produce denser interconnect"
+      },
+      "name": "topology_matches_workload",
+      "passed": true
+    },
+    {
+      "details": {
+        "allocation": "case_training_space",
+        "case_names_consistent": true,
+        "ir": "case_training_space",
+        "parsed": "case_training_space",
+        "reason": "later stages should be driven by the same normalized IR chain",
+        "schedule": "case_training_space",
+        "topology": "case_training_space"
+      },
+      "name": "normalized_ir_used",
+      "passed": true
+    },
+    {
+      "details": {
+        "feedback_applied": false,
+        "reason": "when a runtime event is present, feedback should be visibly applied (reschedule/recompile)",
+        "runtime_event_in_schedule_inputs": false
+      },
+      "name": "runtime_adaptation_visible",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "notes": "lightweight plausibility checks",
+    "passed": true,
+    "warnings": []
+  }
+}

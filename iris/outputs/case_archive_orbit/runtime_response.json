@@ -1,0 +1,8 @@
+{
+  "applied": false,
+  "case_name": "case_archive_orbit",
+  "effects": {},
+  "rationale": {
+    "reason": "no runtime event provided"
+  }
+}

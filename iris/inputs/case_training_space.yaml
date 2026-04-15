@@ -1,0 +1,29 @@
+case:
+  name: case_training_space
+
+job:
+  type: training
+  accelerators:
+    count: 100
+    type: gpu
+  hardware:
+    min_memory_gb: 40
+
+objectives:
+  - maximize_throughput
+  - prefer_space_compute
+
+constraints:
+  latency_sensitivity: low
+  energy_preference: low_cost
+  reliability: medium
+
+placement:
+  preference: space
+
+network:
+  preference: hybrid
+
+runtime_policy:
+  conservative: false
+  allow_hybrid: true

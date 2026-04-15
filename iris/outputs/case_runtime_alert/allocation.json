@@ -1,0 +1,66 @@
+{
+  "auxiliary_roles": {
+    "coordinator": "orbit-leo-solar-1",
+    "storage": "earth-object-store"
+  },
+  "case_name": "case_runtime_alert",
+  "packed": true,
+  "placement": "orbit",
+  "rationale": {
+    "rejected": [],
+    "scoring": [
+      {
+        "cluster": "earth-a100-west",
+        "reasons": [
+          "high-comm workload favors higher link confidence"
+        ],
+        "score": 1.96
+      },
+      {
+        "cluster": "earth-h100-east",
+        "reasons": [
+          "high-comm workload favors higher link confidence"
+        ],
+        "score": 1.94
+      },
+      {
+        "cluster": "orbit-leo-solar-1",
+        "reasons": [
+          "orbit is a placement candidate",
+          "high-comm workload favors higher link confidence"
+        ],
+        "score": 3.44
+      },
+      {
+        "cluster": "orbit-leo-solar-2",
+        "reasons": [
+          "orbit is a placement candidate",
+          "high-comm workload favors higher link confidence"
+        ],
+        "score": 3.24
+      }
+    ],
+    "summary": {
+      "allocated_accelerators": 100,
+      "packed_preference": true,
+      "placement": "orbit",
+      "requested_accelerators": 100
+    }
+  },
+  "selected_clusters": [
+    {
+      "accelerators": 96,
+      "cluster": "orbit-leo-solar-1",
+      "cluster_link_confidence": 0.72,
+      "domain": "orbit",
+      "reason": "selected by score: orbit is a placement candidate; high-comm workload favors higher link confidence"
+    },
+    {
+      "accelerators": 4,
+      "cluster": "orbit-leo-solar-2",
+      "cluster_link_confidence": 0.62,
+      "domain": "orbit",
+      "reason": "selected by score: orbit is a placement candidate; high-comm workload favors higher link confidence"
+    }
+  ]
+}

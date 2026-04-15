@@ -1,0 +1,59 @@
+case_name: case_runtime_alert
+groups:
+- id: earth
+  label: Earth
+- id: orbit
+  label: Orbit
+- id: storage
+  label: Storage
+- id: coordination
+  label: Coordination
+links:
+- bandwidth_class: high
+  dst: orbit-leo-solar-2
+  reason: dense interconnect for communication-heavy workload
+  src: orbit-leo-solar-1
+  stability: medium
+  type: packet
+- bandwidth_class: medium
+  dst: object_store
+  reason: storage transfer path
+  src: orbit-leo-solar-1
+  stability: high
+  type: packet
+- bandwidth_class: medium
+  dst: object_store
+  reason: storage transfer path
+  src: orbit-leo-solar-2
+  stability: high
+  type: packet
+nodes:
+- accelerators: 96
+  group: orbit
+  id: orbit-leo-solar-1
+  label: orbit-leo-solar-1
+  roles:
+  - compute
+- accelerators: 4
+  group: orbit
+  id: orbit-leo-solar-2
+  label: orbit-leo-solar-2
+  roles:
+  - compute
+- group: coordination
+  id: coordinator
+  label: coordinator@orbit-leo-solar-1
+  roles:
+  - coordinator
+- group: storage
+  id: object_store
+  label: earth-object-store
+  roles:
+  - storage
+rationale:
+  reasons:
+  - network.preference=packet => packet links
+  - need_dense_interconnect => meshed compute links
+  schedule_dependency:
+    schedule_decision: delay_due_to_runtime_risk
+    topology_required_before_launch: true

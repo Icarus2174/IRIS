@@ -1,0 +1,27 @@
+{
+  "actions": [
+    {
+      "action": "compile_topology",
+      "reason": "placement/topology dependencies must be prepared"
+    },
+    {
+      "action": "launch_job",
+      "reason": "launch after topology is ready"
+    }
+  ],
+  "case_name": "case_archive_orbit",
+  "decision": "wait_for_topology",
+  "rationale": {
+    "inputs": {
+      "communication_intensity": "low",
+      "latency_class": "relaxed",
+      "placement": "orbit",
+      "runtime_event": null,
+      "workload_class": "archive"
+    },
+    "reasons": [
+      "hybrid/orbit/high-comm => wait for topology compilation"
+    ]
+  },
+  "topology_required_before_launch": true
+}
