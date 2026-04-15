@@ -1,0 +1,14 @@
+case:
+  name: case_runtime_alert
+
+inherits:
+  from: case_training_space.yaml
+
+runtime_event:
+  type: orbital_link_confidence_low
+  severity: high
+  details:
+    affected_domains:
+      - orbit
+    confidence: 0.25
+    note: "Simulated degraded orbital link confidence."

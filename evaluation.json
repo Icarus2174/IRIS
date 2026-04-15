@@ -1,0 +1,80 @@
+{
+  "baseline_comparison": {
+    "baseline": "earth_only_packet_only_no_feedback",
+    "diff_hints": {
+      "placement": {
+        "baseline": "earth",
+        "chosen": "orbit"
+      },
+      "preferred_link_mode": {
+        "baseline": "packet",
+        "chosen": "hybrid"
+      },
+      "runtime_feedback": {
+        "baseline": "disabled",
+        "chosen": "enabled"
+      }
+    },
+    "notes": "naive baseline for evaluation narrative"
+  },
+  "case_name": "case_training_space",
+  "checks": [
+    {
+      "details": {
+        "allocated": 100,
+        "reason": "never allocate more than requested",
+        "requested": 100
+      },
+      "name": "resource_over_allocation",
+      "passed": true
+    },
+    {
+      "details": {
+        "allocated": 100,
+        "reason": "prototype expects full allocation when possible",
+        "requested": 100
+      },
+      "name": "resource_under_allocation",
+      "passed": true
+    },
+    {
+      "details": {
+        "latency_class": "normal",
+        "placement": "orbit",
+        "reason": "strict inference should be earth-local in this prototype"
+      },
+      "name": "strict_inference_not_in_orbit",
+      "passed": true
+    },
+    {
+      "details": {
+        "communication_intensity": "high",
+        "dense_expected": true,
+        "dense_present": true,
+        "reason": "training/high-comm should produce denser interconnect"
+      },
+      "name": "topology_matches_workload",
+      "passed": true
+    },
+    {
+      "details": {
+        "reason": "pipeline stage contract: allocator/scheduler/topology take IR object, not raw YAML"
+      },
+      "name": "normalized_ir_used",
+      "passed": true
+    },
+    {
+      "details": {
+        "reason": "if runtime event exists, schedule inputs include it; feedback may reschedule/recompile",
+        "runtime_event_in_schedule_inputs": false
+      },
+      "name": "runtime_adaptation_visible",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "notes": "lightweight plausibility checks",
+    "passed": true,
+    "warnings": []
+  }
+}

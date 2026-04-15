@@ -1,0 +1,55 @@
+{
+  "accelerator_count": 100,
+  "accelerator_type": "gpu",
+  "case_name": "case_training_space",
+  "energy_preference": "low_cost",
+  "explanations": {},
+  "job_type": "training",
+  "latency_sensitivity": "low",
+  "min_memory_gb": 40,
+  "network_preference": "hybrid",
+  "objectives": [
+    "maximize_throughput",
+    "prefer_space_compute"
+  ],
+  "placement_preference": "space",
+  "raw_source": {
+    "case": {
+      "name": "case_training_space"
+    },
+    "constraints": {
+      "energy_preference": "low_cost",
+      "latency_sensitivity": "low",
+      "reliability": "medium"
+    },
+    "job": {
+      "accelerators": {
+        "count": 100,
+        "type": "gpu"
+      },
+      "hardware": {
+        "min_memory_gb": 40
+      },
+      "type": "training"
+    },
+    "network": {
+      "preference": "hybrid"
+    },
+    "objectives": [
+      "maximize_throughput",
+      "prefer_space_compute"
+    ],
+    "placement": {
+      "preference": "space"
+    },
+    "runtime_policy": {
+      "allow_hybrid": true,
+      "conservative": false
+    }
+  },
+  "reliability": "medium",
+  "runtime_policy": {
+    "allow_hybrid": true,
+    "conservative": false
+  }
+}
