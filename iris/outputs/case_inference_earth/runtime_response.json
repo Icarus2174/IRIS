@@ -1,0 +1,8 @@
+{
+  "applied": false,
+  "case_name": "case_inference_earth",
+  "effects": {},
+  "rationale": {
+    "reason": "no runtime event provided"
+  }
+}

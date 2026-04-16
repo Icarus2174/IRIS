@@ -1,0 +1,18 @@
+{
+  "applied": true,
+  "case_name": "case_runtime_alert",
+  "effects": {
+    "recompiled_topology": true,
+    "rescheduled": true
+  },
+  "rationale": {
+    "event": "orbital_link_confidence_low",
+    "min_confidence_threshold": 0.45,
+    "reasons": [
+      "runtime event triggers rescheduling",
+      "conservative response: downgrade link mode preference to packet",
+      "runtime event triggers topology recompilation"
+    ],
+    "runtime_confidence": 0.25
+  }
+}

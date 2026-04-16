@@ -1,0 +1,18 @@
+flowchart LR
+
+subgraph orbit[Orbit]
+  orbit-leo-solar-1["orbit-leo-solar-1"]
+  orbit-leo-solar-2["orbit-leo-solar-2"]
+end
+
+subgraph coordination[Coordination]
+  coordinator["coordinator@orbit-leo-solar-1"]
+end
+
+subgraph storage[Storage]
+  object_store["earth-object-store"]
+end
+
+  orbit-leo-solar-1 -- "packet:medium" --> object_store
+  orbit-leo-solar-1 -- "packet:high" --> orbit-leo-solar-2
+  orbit-leo-solar-2 -- "packet:medium" --> object_store

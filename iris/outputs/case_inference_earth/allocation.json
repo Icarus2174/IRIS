@@ -1,0 +1,59 @@
+{
+  "auxiliary_roles": {
+    "coordinator": "earth-a100-west",
+    "storage": "earth-object-store"
+  },
+  "case_name": "case_inference_earth",
+  "packed": true,
+  "placement": "earth",
+  "rationale": {
+    "rejected": [],
+    "scoring": [
+      {
+        "cluster": "earth-a100-west",
+        "reasons": [
+          "earth is a placement candidate",
+          "strict latency prefers earth"
+        ],
+        "score": 5.5
+      },
+      {
+        "cluster": "earth-h100-east",
+        "reasons": [
+          "earth is a placement candidate",
+          "strict latency prefers earth"
+        ],
+        "score": 5.5
+      },
+      {
+        "cluster": "orbit-leo-solar-1",
+        "reasons": [
+          "strict latency penalizes orbit"
+        ],
+        "score": -5.0
+      },
+      {
+        "cluster": "orbit-leo-solar-2",
+        "reasons": [
+          "strict latency penalizes orbit"
+        ],
+        "score": -5.0
+      }
+    ],
+    "summary": {
+      "allocated_accelerators": 8,
+      "packed_preference": true,
+      "placement": "earth",
+      "requested_accelerators": 8
+    }
+  },
+  "selected_clusters": [
+    {
+      "accelerators": 8,
+      "cluster": "earth-a100-west",
+      "cluster_link_confidence": 0.98,
+      "domain": "earth",
+      "reason": "strict latency: allocate earth-local"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "actions": [
+    {
+      "action": "launch_job",
+      "reason": "minimize latency; avoid waiting on topology reconfiguration"
+    }
+  ],
+  "case_name": "case_inference_earth",
+  "decision": "launch_immediately",
+  "rationale": {
+    "inputs": {
+      "communication_intensity": "low",
+      "latency_class": "strict",
+      "placement": "earth",
+      "runtime_event": null,
+      "workload_class": "inference"
+    },
+    "reasons": [
+      "strict latency => launch immediately if earth resources allocated"
+    ]
+  },
+  "topology_required_before_launch": false
+}

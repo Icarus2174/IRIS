@@ -1,0 +1,31 @@
+{
+  "actions": [
+    {
+      "action": "compile_topology",
+      "reason": "ensure conservative topology before launch"
+    },
+    {
+      "action": "recheck_runtime_confidence",
+      "reason": "wait for improved confidence or fallback trigger"
+    },
+    {
+      "action": "launch_job_when_safe",
+      "reason": "avoid launching communication-heavy job on unstable links"
+    }
+  ],
+  "case_name": "case_runtime_alert",
+  "decision": "delay_due_to_runtime_risk",
+  "rationale": {
+    "inputs": {
+      "communication_intensity": "high",
+      "latency_class": "normal",
+      "placement": "orbit",
+      "runtime_event": "orbital_link_confidence_low",
+      "workload_class": "training"
+    },
+    "reasons": [
+      "high-comm job + degraded link confidence => delay launch conservatively"
+    ]
+  },
+  "topology_required_before_launch": true
+}
